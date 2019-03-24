@@ -1,24 +1,15 @@
 import pymysql
+from pymysql import Error
 con = pymysql.connect(db="absen", user="root", passwd="",host="localhost",port=3306,autocommit=True)
 
+tempId=input('input id : ')
 cur = con.cursor()
-cur.execute("SELECT card FROM siswa")
-card = [cur.fetchall()]
-# try:
-#    cur.execute("SELECT card FROM siswa")
-
-#    rcount = int(cur.rowcount)
-   
-#    for row in rcount:
-#       row = cur.fetchone()
-
-#       card.append(row[0])
-#       nama.append(row[1])
-
-# except:
-#    print ("Error: unable to fecth data")
-
-# cur.close()
-
-
-print(card)
+sql_select_query = """select nama from siswa where card = %s"""
+cur.execute(sql_select_query, (tempId, ))
+rows_count = cur.execute(sql_select_query, (tempId, ))
+card = cur.fetchall()
+tuple(card)
+if rows_count > 0:
+    print(card)
+else:
+    print('unrecognized')

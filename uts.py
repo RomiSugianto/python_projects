@@ -14,7 +14,6 @@ uts = int(input('Masukan Nilai UTS    :'))
 uas = int(input('Masukan Nilai UAS    :'))
 
 nilai = (absen*10/100)+(tugas*20/100)+(uts*30/100)+(uas*40/100)
-# nAkhir = int(nilai)
 
 print('\n')
 print('Nilai Akhir Anda Adalah : ', nilai)
