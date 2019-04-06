@@ -8,7 +8,9 @@ sql_select_query = """select nama from siswa where card = %s"""
 cur.execute(sql_select_query, (tempId, ))
 rows_count = cur.execute(sql_select_query, (tempId, ))
 card = cur.fetchone()
-if rows_count > 0:
-    print('welcome',card[0])
-else:
-    print('unrecognized card')
+cek = True
+while(cek)
+    if rows_count > 0:
+        print('welcome',card[0])
+    else:
+        print('unrecognized card')
